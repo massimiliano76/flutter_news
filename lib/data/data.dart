@@ -18,12 +18,6 @@ List<CategorieModel> getCategories() {
   categories.add(categorieModel);
   categorieModel = new CategorieModel();
 
-  categorieModel.imgUrl =
-      "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-  categorieModel.categorieName = "WildLife";
-  categories.add(categorieModel);
-  categorieModel = new CategorieModel();
-
   categorieModel.imgUrl = "https://images.pexels.com/photos/105028/pexels-photo-105028.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
   categorieModel.categorieName = "Health";
   categories.add(categorieModel);
@@ -42,16 +36,12 @@ List<CategorieModel> getCategories() {
   categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "https://images.pexels.com/photos/889839/pexels-photo-889839.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-  categorieModel.categorieName = "Art";
+      "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  categorieModel.categorieName = "Science";
   categories.add(categorieModel);
   categorieModel = new CategorieModel();
 
-  categorieModel.imgUrl =
-      "https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-  categorieModel.categorieName = "Fitness";
-  categories.add(categorieModel);
-  categorieModel = new CategorieModel();
+
 
   return categories;
 }

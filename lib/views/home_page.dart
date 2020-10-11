@@ -40,7 +40,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("FlutterNews"),
+        title: AppName(),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0.0,
       ),
       body: SafeArea(
         child: _loading
@@ -58,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                             physics: ClampingScrollPhysics(),
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: EdgeInsets.symmetric(horizontal: 12),
                             itemBuilder: (context, index) {
                               return CategorieTile(
                                 imgUrl: categories[index].imgUrl,
@@ -68,7 +71,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       //Blogs
                       Container(
-                        margin: EdgeInsets.only(top: 20),
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.only(top: 5),
                         child: ListView.builder(
                             itemCount: articles.length,
                             shrinkWrap: true,
