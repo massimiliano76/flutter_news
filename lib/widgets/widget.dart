@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/models/article_model.dart';
 import 'package:flutter_news/views/categorie_view.dart';
+import 'package:flutter_news/views/web_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppName extends StatelessWidget {
@@ -90,41 +91,46 @@ class NewsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //color: Colors.blue,
-      //margin: EdgeInsets.symmetric(horizontal: 5),
-      padding: EdgeInsets.symmetric(horizontal: 8),
-      width: MediaQuery.of(context).size.width,
-      child: Card(
+    return InkWell(
+      // onTap: (){
+      //   Navigator.push(context, MaterialPageRoute(builder: (context)=>WebViewNews(NewsURL: postUrl,)));
+      // },
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.network(
-                    imageUrl,
-                    height: 250,
-                    width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.cover,
-                  )),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
-                child: Text(
-                  title,
-                  maxLines: 2,
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-                ),
-              ),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 5.0),
+        //color: Colors.blue,
+        //margin: EdgeInsets.symmetric(horizontal: 5),
+        padding: EdgeInsets.symmetric(horizontal: 8),
+        width: MediaQuery.of(context).size.width,
+        child: Card(
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(
+                      imageUrl,
+                      height: 250,
+                      width: MediaQuery.of(context).size.width,
+                      fit: BoxFit.cover,
+                    )),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
                   child: Text(
-                    description,
+                    title,
                     maxLines: 2,
-                  )),
-            ],
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                    child: Text(
+                      description,
+                      maxLines: 2,
+                    )),
+              ],
+            ),
           ),
         ),
       ),

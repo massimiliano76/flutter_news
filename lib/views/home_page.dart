@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                       //Blogs
                       Container(
                         width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.only(top: 10),
+                        margin: EdgeInsets.only(top: 5),
                         child: ListView.builder(
                             itemCount: articles.length,
                             shrinkWrap: true,
