@@ -3,8 +3,9 @@ import 'package:flutter_news/data/data.dart';
 import 'package:flutter_news/helper_functions/trending_news.dart';
 import 'package:flutter_news/models/article_model.dart';
 import 'package:flutter_news/models/categorie_model.dart';
-import 'package:flutter_news/views/categorie_view.dart';
+//import 'package:flutter_news/views/categorie_view.dart';
 import 'package:flutter_news/widgets/widget.dart';
+import 'package:flutter_news/data/my_info.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -87,7 +88,10 @@ class _HomePageState extends State<HomePage> {
                                 author: articles[index].author,
                               );
                             }),
-                      )
+                      ),
+                      SizedBox(height: 15,),
+                      InfoScreen(),
+                      SizedBox(height: 20,)
                     ],
                   ),
                 ),

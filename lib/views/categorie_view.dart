@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_news/helper_functions/get_categorie_news.dart';
-import 'package:flutter_news/models/article_model.dart';
+//import 'package:flutter_news/models/article_model.dart';
 import 'package:flutter_news/widgets/widget.dart';
 
 class categorieView extends StatefulWidget {

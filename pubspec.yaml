@@ -43,7 +43,8 @@ dev_dependencies:
 
 flutter_native_splash: 
   image: lib/assets/flutter_logo.png
-  color: 282a36
+  color: ffffff 
+  #282a36
   #ffffff
 
 

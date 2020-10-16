@@ -10,8 +10,10 @@ class AppName extends StatelessWidget {
     return Container(
       child: RichText(
           text: TextSpan(children: <TextSpan>[
-        TextSpan(text: "Flutter", style: GoogleFonts.roboto(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600,),),
-        TextSpan(text: "News", style: GoogleFonts.roboto(color: Colors.blue[800], fontSize: 20, fontWeight: FontWeight.w600,),)
+        TextSpan(text: "Flutter", 
+        style: GoogleFonts.roboto(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600, letterSpacing: 1),),
+        TextSpan(text: "News", 
+        style: GoogleFonts.roboto(color: Colors.blue, fontSize: 20, fontWeight: FontWeight.w600, letterSpacing: 1),)
       ])),
     );
   }
@@ -92,14 +94,12 @@ class NewsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      // onTap: (){
-      //   Navigator.push(context, MaterialPageRoute(builder: (context)=>WebViewNews(NewsURL: postUrl,)));
-      // },
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>WebViewNews(NewsURL: postUrl,)));
+      },
         child: Container(
-        //color: Colors.blue,
-        //margin: EdgeInsets.symmetric(horizontal: 5),
         padding: EdgeInsets.symmetric(horizontal: 8),
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width ,
         child: Card(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
