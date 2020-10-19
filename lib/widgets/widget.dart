@@ -1,8 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news/models/article_model.dart';
 import 'package:flutter_news/views/categorie_view.dart';
 import 'package:flutter_news/views/web_view.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppName extends StatelessWidget {
   @override
@@ -10,8 +12,22 @@ class AppName extends StatelessWidget {
     return Container(
       child: RichText(
           text: TextSpan(children: <TextSpan>[
-        TextSpan(text: "Flutter", style: GoogleFonts.roboto(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600,),),
-        TextSpan(text: "News", style: GoogleFonts.roboto(color: Colors.blue[800], fontSize: 20, fontWeight: FontWeight.w600,),)
+        TextSpan(
+          text: "Flutter",
+          style: GoogleFonts.roboto(
+              //color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 1),
+        ),
+        TextSpan(
+          text: "News",
+          style: GoogleFonts.roboto(
+              //color: Colors.blue,
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 1),
+        )
       ])),
     );
   }
@@ -40,13 +56,14 @@ class CategorieTile extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.network(
-                  imgUrl,
-                  fit: BoxFit.cover,
-                  height: 55,
-                  width: 120,
-                )),
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                imgUrl,
+                fit: BoxFit.cover,
+                height: 55,
+                width: 120,
+              ),
+            ),
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Container(
@@ -80,6 +97,13 @@ Widget articlesList({List<ArticleModel> articles, context}) {
 
 class NewsTile extends StatelessWidget {
   final imageUrl, title, description, content, postUrl, author;
+  _launchURL(String URLtoNews) async {
+    if (await canLaunch(URLtoNews)) {
+      launch(URLtoNews);
+    } else {
+      throw 'Cannot launch url';
+    }
+  }
 
   NewsTile(
       {this.imageUrl,
@@ -92,31 +116,40 @@ class NewsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      // onTap: (){
-      //   Navigator.push(context, MaterialPageRoute(builder: (context)=>WebViewNews(NewsURL: postUrl,)));
-      // },
-        child: Container(
-        //color: Colors.blue,
-        //margin: EdgeInsets.symmetric(horizontal: 5),
-        padding: EdgeInsets.symmetric(horizontal: 8),
+      onTap: () {
+        if (kIsWeb) {
+          _launchURL(postUrl);
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => WebViewNews(
+                        NewsURL: postUrl,
+                      )));
+        }
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 4, vertical: 2),
         width: MediaQuery.of(context).size.width,
         child: Card(
+          elevation: 2.0,
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 8),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
                       imageUrl,
-                      height: 250,
+                      //height: 250,
                       width: MediaQuery.of(context).size.width,
                       fit: BoxFit.cover,
                     )),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 6.0, vertical: 4.0),
                   child: Text(
                     title,
                     maxLines: 2,
@@ -124,7 +157,8 @@ class NewsTile extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 6.0, vertical: 4.0),
                     child: Text(
                       description,
                       maxLines: 2,

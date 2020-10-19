@@ -8,7 +8,7 @@ class News {
 
   Future<void> getTrendingNews() async {
     String url =
-        "https://newsapi.org/v2/top-headlines?country=in&sortBy=publishedAt&language=en&apiKey=${apiKey}";
+        "https://newsapi.org/v2/top-headlines?country=in&sortBy=publishedAt&language=hi&apiKey=${apiKey}";
 
     var response = await http.get(url);
 
@@ -24,9 +24,7 @@ class News {
             url: element["url"],
             urlToImage: element["urlToImage"],
             //publishedAt: element["publishedAt"],
-            content: element["content"],
-            
-            
+            content: element["content"],          
           );
           news.add(articleModel);
         }
