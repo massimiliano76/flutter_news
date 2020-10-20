@@ -15,7 +15,7 @@ class AppName extends StatelessWidget {
         TextSpan(
           text: "Flutter",
           style: GoogleFonts.roboto(
-              //color: Colors.black,
+              color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.w600,
               letterSpacing: 1),
@@ -23,7 +23,7 @@ class AppName extends StatelessWidget {
         TextSpan(
           text: "News",
           style: GoogleFonts.roboto(
-              //color: Colors.blue,
+              color: Colors.white,
               fontSize: 20,
               fontWeight: FontWeight.w600,
               letterSpacing: 1),
@@ -96,7 +96,7 @@ Widget articlesList({List<ArticleModel> articles, context}) {
 }
 
 class NewsTile extends StatelessWidget {
-  final imageUrl, title, description, content, postUrl, author;
+  final imageUrl, title, description, content, postUrl, author, publishedAt;
   _launchURL(String URLtoNews) async {
     if (await canLaunch(URLtoNews)) {
       launch(URLtoNews);
@@ -111,7 +111,8 @@ class NewsTile extends StatelessWidget {
       this.description,
       this.content,
       @required this.postUrl,
-      this.author});
+      this.author,
+      this.publishedAt});
 
   @override
   Widget build(BuildContext context) {
@@ -157,11 +158,18 @@ class NewsTile extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 6.0, vertical: 4.0),
+                  padding: EdgeInsets.symmetric(horizontal: 6.0, vertical: 4.0),
+                  child: Text(
+                    description,
+                    maxLines: 2,
+                  ),
+                ),
+                Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 6.0, vertical: 2.0),
                     child: Text(
-                      description,
-                      maxLines: 2,
+                      "Date: ${publishedAt.toString().substring(0, 10)}",
+                      style: GoogleFonts.roboto(),
                     )),
               ],
             ),
