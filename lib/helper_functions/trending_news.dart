@@ -23,7 +23,7 @@ class News {
             description: element["description"],
             url: element["url"],
             urlToImage: element["urlToImage"],
-            //publishedAt: element["publishedAt"],
+            publishedAt: element["publishedAt"],
             content: element["content"],          
           );
           news.add(articleModel);

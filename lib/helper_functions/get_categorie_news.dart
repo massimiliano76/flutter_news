@@ -10,7 +10,7 @@ class CategorieNews {
   List<ArticleModel> categorieNews = [];
   Future<void> getCategorieNews(String category) async {
     var url =
-        "http://newsapi.org/v2/top-headlines?country=in&category=$category&apiKey=${apiKey}";
+        "http://newsapi.org/v2/top-headlines?country=in&category=$category&language=en&apiKey=$apiKey";
 
     var response = await http.get(url);
     var jsonData = jsonDecode(response.body);
@@ -25,6 +25,7 @@ class CategorieNews {
             url: element["url"],
             urlToImage: element["urlToImage"],
             content: element["content"],
+            publishedAt: element["publishedAt"],
           );
           categorieNews.add(articleModel);
         }
