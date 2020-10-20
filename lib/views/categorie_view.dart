@@ -16,7 +16,7 @@ class categorieView extends StatefulWidget {
 class _categorieViewState extends State<categorieView> {
   var categorylist;
   bool _loading;
-  bool isSwitched = false;
+  //bool isSwitched = false;
 
   void getNews() async {
     CategorieNews categorieNews = new CategorieNews();
@@ -45,17 +45,17 @@ class _categorieViewState extends State<categorieView> {
         // iconTheme: IconThemeData(
         //   color: Colors.black
         // ),
-        actions: [
-          Switch(
-            value: isSwitched,
-            onChanged: (value) {
-              toggleTheme();
-              setState(() {
-                isSwitched = value;
-              });
-            },
-          )
-        ],
+        // actions: [
+        //   Switch(
+        //     value: isSwitched,
+        //     onChanged: (value) {
+        //       toggleTheme();
+        //       setState(() {
+        //         isSwitched = value;
+        //       });
+        //     },
+        //   )
+        // ],
       ),
       body: _loading
           ? Center(
@@ -81,6 +81,7 @@ class _categorieViewState extends State<categorieView> {
                               title: categorylist[index].title ?? "",
                               author: categorylist[index].author ?? "",
                               content: categorylist[index].content ?? "",
+                              publishedAt: categorylist[index].publishedAt ?? "",
                             );
                           }),
                     ),

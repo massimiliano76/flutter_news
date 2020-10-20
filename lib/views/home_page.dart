@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   bool _loading;
   var newsList;
-  bool isSwitched = false;
+  bool _isSwitched = false;
 
   void getTrendingNews() async {
     News news = News();
@@ -34,8 +34,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     _loading = true;
-
-    super.initState();
+    super.initState();    
     categories = getCategories();
     getTrendingNews();
   }
@@ -49,22 +48,26 @@ class _HomePageState extends State<HomePage> {
         //backgroundColor: Colors.purple,
         elevation: 0.0,
         actions: [
-          //Icon(Icons.brightness_medium_sharp),
           Switch(
-            value: isSwitched,
-            onChanged: (value) {
+            activeColor: Colors.white,
+            //autofocus: true,
+            //activeTrackColor: Colors.blue,
+            inactiveThumbColor: Colors.white,
+            value: _isSwitched,
+            onChanged: (bool value) {
               toggleTheme();
               setState(() {
-                isSwitched = value;
+                _isSwitched = value;
               });
             },
           ),
-          
         ],
       ),
       body: DoubleBackToCloseApp(
-              snackBar: const SnackBar(content: Text("Press back again to exit"),),
-              child: SafeArea(
+        snackBar: const SnackBar(
+          content: Text("Press back again to exit"),
+        ),
+        child: SafeArea(
           child: _loading
               ? Center(child: Container(child: CircularProgressIndicator()))
               : SingleChildScrollView(
@@ -91,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                         //Blogs
                         Container(
                           width: MediaQuery.of(context).size.width,
-                          margin: EdgeInsets.only(top: 5),
+                          margin: EdgeInsets.only(top: 3),
                           child: ListView.builder(
                               itemCount: articles.length,
                               shrinkWrap: true,
@@ -100,10 +103,13 @@ class _HomePageState extends State<HomePage> {
                                 return NewsTile(
                                   imageUrl: articles[index].urlToImage ?? "",
                                   title: articles[index].title ?? "",
-                                  description: articles[index].description ?? "",
+                                  description:
+                                      articles[index].description ?? "",
                                   content: articles[index].content ?? "",
                                   postUrl: articles[index].url ?? "",
-                                  author: articles[index].author,
+                                  author: articles[index].author ?? "",
+                                  publishedAt:
+                                      articles[index].publishedAt ?? "",
                                 );
                               }),
                         ),
