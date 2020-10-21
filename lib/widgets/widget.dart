@@ -15,7 +15,7 @@ class AppName extends StatelessWidget {
         TextSpan(
           text: "Flutter",
           style: GoogleFonts.roboto(
-              color: Colors.white,
+              color: Colors.blue[600],
               fontSize: 20,
               fontWeight: FontWeight.w600,
               letterSpacing: 1),
@@ -23,7 +23,7 @@ class AppName extends StatelessWidget {
         TextSpan(
           text: "News",
           style: GoogleFonts.roboto(
-              color: Colors.white,
+              color: Colors.blue[600],
               fontSize: 20,
               fontWeight: FontWeight.w600,
               letterSpacing: 1),

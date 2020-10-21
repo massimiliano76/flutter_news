@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
 
   bool _loading;
   var newsList;
-  bool _isSwitched = false;
+  //bool _isSwitched = false;
 
   void getTrendingNews() async {
     News news = News();
@@ -45,23 +45,23 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: AppName(),
         centerTitle: true,
-        //backgroundColor: Colors.purple,
+        //backgroundColor: Colors.purple,      
         elevation: 0.0,
-        actions: [
-          Switch(
-            activeColor: Colors.white,
-            //autofocus: true,
-            //activeTrackColor: Colors.blue,
-            inactiveThumbColor: Colors.white,
-            value: _isSwitched,
-            onChanged: (bool value) {
-              toggleTheme();
-              setState(() {
-                _isSwitched = value;
-              });
-            },
-          ),
-        ],
+        // actions: [
+        //   Switch(
+        //     activeColor: Colors.white,
+        //     //autofocus: true,
+        //     //activeTrackColor: Colors.blue,
+        //     inactiveThumbColor: Colors.white,
+        //     value: _isSwitched,
+        //     onChanged: (bool value) {
+        //       toggleTheme();
+        //       setState(() {
+        //         _isSwitched = value;
+        //       });
+        //     },
+        //   ),
+        // ],
       ),
       body: DoubleBackToCloseApp(
         snackBar: const SnackBar(
@@ -69,8 +69,7 @@ class _HomePageState extends State<HomePage> {
         ),
         child: SafeArea(
           child: _loading
-              ? Center(child: Container(child: CircularProgressIndicator()))
-              : SingleChildScrollView(
+              ? Center(child: Container(child: CircularProgressIndicator(strokeWidth: 4.0,backgroundColor: Colors.transparent , valueColor: AlwaysStoppedAnimation(Colors.purpleAccent[700],),)              )): SingleChildScrollView(
                   child: Container(
                     child: Column(
                       children: <Widget>[
@@ -91,6 +90,7 @@ class _HomePageState extends State<HomePage> {
                                 );
                               }),
                         ),
+                        InfoScreen(),
                         //Blogs
                         Container(
                           width: MediaQuery.of(context).size.width,
@@ -116,15 +116,22 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: 15,
                         ),
-                        InfoScreen(),
+                        // InfoScreen(),
                         SizedBox(
-                          height: 20,
-                        )
+                          height: 10,
+                        ),
                       ],
                     ),
                   ),
                 ),
         ),
+        
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        isExtended: true,
+        onPressed: toggleTheme,
+        icon: Icon(Icons.brightness_6_sharp),
+        label: Text("Change"),
       ),
     );
   }

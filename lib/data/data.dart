@@ -1,6 +1,22 @@
 import 'package:flutter_news/models/categorie_model.dart';
+import 'package:flutter/material.dart';
 
-String apiKey = "876ba9b1472c4be0aee36557cf3070dd";
+String apiKey = "36ddfae6e6474baebb50db8773f0bf3d";
+const MaterialColor white = const MaterialColor(
+  0xFFFFFFFF,
+  const <int, Color>{
+    50: const Color(0xFFFFFFFF),
+    100: const Color(0xFFFFFFFF),
+    200: const Color(0xFFFFFFFF),
+    300: const Color(0xFFFFFFFF),
+    400: const Color(0xFFFFFFFF),
+    500: const Color(0xFFFFFFFF),
+    600: const Color(0xFFFFFFFF),
+    700: const Color(0xFFFFFFFF),
+    800: const Color(0xFFFFFFFF),
+    900: const Color(0xFFFFFFFF),
+  },
+);
 
 List<CategorieModel> getCategories() {
   List<CategorieModel> categories = new List();

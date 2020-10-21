@@ -59,8 +59,10 @@ class _categorieViewState extends State<categorieView> {
       ),
       body: _loading
           ? Center(
-              child: CircularProgressIndicator(),
-            )
+               child: CircularProgressIndicator(strokeWidth: 4.0,backgroundColor: Colors.transparent , valueColor: AlwaysStoppedAnimation(Colors.purpleAccent[700], )
+               
+              
+            ))
           : SingleChildScrollView(
               child: Container(
                 child: Column(
@@ -94,10 +96,10 @@ class _categorieViewState extends State<categorieView> {
             ),
     );
   }
-void toggleTheme() {
-  DynamicTheme.of(context).setBrightness(
-    Theme.of(context).brightness == Brightness.dark ? Brightness.light : Brightness.dark);
+// void toggleTheme() {
+//   DynamicTheme.of(context).setBrightness(
+//     Theme.of(context).brightness == Brightness.dark ? Brightness.light : Brightness.dark);
   
-}
+// }
 
 }
