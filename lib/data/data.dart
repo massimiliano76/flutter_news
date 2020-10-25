@@ -1,7 +1,7 @@
 import 'package:flutter_news/models/categorie_model.dart';
 import 'package:flutter/material.dart';
 
-String apiKey = "36ddfae6e6474baebb50db8773f0bf3d";
+String apiKey = "876ba9b1472c4be0aee36557cf3070dd";
 const MaterialColor white = const MaterialColor(
   0xFFFFFFFF,
   const <int, Color>{
@@ -57,8 +57,55 @@ List<CategorieModel> getCategories() {
   categories.add(categorieModel);
   categorieModel = new CategorieModel();
 
-
-
-
   return categories;
+}
+
+
+List<CategorieModel> getSources() {
+  List<CategorieModel> sources = new List();
+  CategorieModel categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl =
+      "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  categorieModel.categorieName = "BBC-Bews";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl =
+      "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  categorieModel.categorieName = "ABC-News";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl =
+      "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  categorieModel.categorieName = "CNN";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl =
+      "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  categorieModel.categorieName = "Google-News-in";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl =
+      "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  categorieModel.categorieName = "MTV-News";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl =
+      "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  categorieModel.categorieName = "Fox-News";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl =
+      "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  categorieModel.categorieName = "The-Times-of-India";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  return sources;
 }

@@ -1,10 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_news/models/article_model.dart';
 import 'package:flutter_news/views/categorie_view.dart';
+import 'package:flutter_news/views/source_view.dart';
 import 'package:flutter_news/views/web_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
+//import 'package:dynamic_theme/dynamic_theme.dart';
 
 class AppName extends StatelessWidget {
   @override
@@ -16,17 +17,17 @@ class AppName extends StatelessWidget {
           text: "Flutter",
           style: GoogleFonts.roboto(
               color: Colors.blue[600],
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: FontWeight.w600,
-              letterSpacing: 1),
+              letterSpacing: 0.8),
         ),
         TextSpan(
           text: "News",
           style: GoogleFonts.roboto(
               color: Colors.blue[600],
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: FontWeight.w600,
-              letterSpacing: 1),
+              letterSpacing: 0.8),
         )
       ])),
     );
@@ -52,7 +53,8 @@ class CategorieTile extends StatelessWidget {
       child: Container(
         height: 55,
         width: 120,
-        margin: EdgeInsets.only(right: 5),
+        margin: EdgeInsets.only(right: 5, top: 10,),
+
         child: Stack(
           children: <Widget>[
             ClipRRect(
@@ -85,19 +87,9 @@ class CategorieTile extends StatelessWidget {
   }
 }
 
-Widget articlesList({List<ArticleModel> articles, context}) {
-  return Container(
-    child: ListView.builder(
-        itemCount: articles.length,
-        itemBuilder: (context, index) {
-          return ListTile();
-        }),
-  );
-}
-
 class NewsTile extends StatelessWidget {
   final imageUrl, title, description, content, postUrl, author, publishedAt;
-  _launchURL(String URLtoNews) async {
+  _launchURL(URLtoNews) async {
     if (await canLaunch(URLtoNews)) {
       launch(URLtoNews);
     } else {
@@ -168,7 +160,7 @@ class NewsTile extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 6.0, vertical: 2.0),
                     child: Text(
-                      "Date: ${publishedAt.toString().substring(0, 10)}",
+                      getDate(publishedAt),
                       style: GoogleFonts.roboto(),
                     )),
               ],
@@ -179,3 +171,117 @@ class NewsTile extends StatelessWidget {
     );
   }
 }
+
+  String getDate(String utc) {
+    var date = DateTime.parse(utc);
+    DateTime local = date.toLocal();
+    return 'Date: ${local.day}/${local.month}/${local.year}    Time: ${local.hour}:${local.minute}:${local.second}';
+  }
+
+class CategorieTile2 extends StatelessWidget {
+  String imgUrl;
+  String title;
+  CategorieTile2({this.imgUrl, this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => categorieView(
+                      category: title.toLowerCase(),
+                    )));
+      },
+      child: Container(
+        height: 100,
+        width: MediaQuery.of(context).size.width,
+        margin: EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
+        child: Stack(
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                imgUrl,
+                fit: BoxFit.cover,
+                height: 100,
+        width: MediaQuery.of(context).size.width,
+              ),
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                height: 100,
+        width: MediaQuery.of(context).size.width,
+                color: Colors.black26,
+                alignment: Alignment.center,
+                child: Text(
+                  title,
+                  style: TextStyle(
+                      color: Colors.white,fontSize: 20, fontWeight: FontWeight.w600),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CategorieTile3 extends StatelessWidget {
+  String imgUrl;
+  String title;
+  CategorieTile3({this.imgUrl, this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => NewsFromSources(
+                      newsSource: title.toLowerCase(),
+                    )));
+      },
+      child: Container(
+        height: 100,
+        width: MediaQuery.of(context).size.width,       
+        //padding: EdgeInsets.symmetric(vertical: 16.0),
+        margin: EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
+
+        child: Stack(
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(
+                imgUrl,
+                fit: BoxFit.cover,
+                height: 100,
+                width: MediaQuery.of(context).size.width,
+              ),
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                height: 100,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.black26,
+                alignment: Alignment.center,
+                child: Text(
+                  title,
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20,),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+

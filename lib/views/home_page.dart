@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
 
   bool _loading;
   var newsList;
-  //bool _isSwitched = false;
 
   void getTrendingNews() async {
     News news = News();
@@ -34,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     _loading = true;
-    super.initState();    
+    super.initState();
     categories = getCategories();
     getTrendingNews();
   }
@@ -45,31 +44,35 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: AppName(),
         centerTitle: true,
-        //backgroundColor: Colors.purple,      
         elevation: 0.0,
-        // actions: [
-        //   Switch(
-        //     activeColor: Colors.white,
-        //     //autofocus: true,
-        //     //activeTrackColor: Colors.blue,
-        //     inactiveThumbColor: Colors.white,
-        //     value: _isSwitched,
-        //     onChanged: (bool value) {
-        //       toggleTheme();
-        //       setState(() {
-        //         _isSwitched = value;
-        //       });
-        //     },
-        //   ),
-        // ],
+        actions: [
+          // IconButton(
+          //   icon: Icon(
+          //     Icons.brightness_6_rounded,
+          //     size: 25,
+          //   ),
+          //   onPressed: switchTheme,
+          // )
+        ],
       ),
       body: DoubleBackToCloseApp(
         snackBar: const SnackBar(
-          content: Text("Press back again to exit"),
+          content: Text("Tap again to exit"),
         ),
         child: SafeArea(
           child: _loading
-              ? Center(child: Container(child: CircularProgressIndicator(strokeWidth: 4.0,backgroundColor: Colors.transparent , valueColor: AlwaysStoppedAnimation(Colors.purpleAccent[700],),)              )): SingleChildScrollView(
+              ? Center(
+                  child: Container(
+                    child: CircularProgressIndicator(
+                      strokeWidth: 4.0,
+                      backgroundColor: Colors.transparent,
+                      valueColor: AlwaysStoppedAnimation(
+                        Colors.purpleAccent[700],
+                      ),
+                    ),
+                  ),
+                )
+              : SingleChildScrollView(
                   child: Container(
                     child: Column(
                       children: <Widget>[
@@ -90,7 +93,6 @@ class _HomePageState extends State<HomePage> {
                                 );
                               }),
                         ),
-                        InfoScreen(),
                         //Blogs
                         Container(
                           width: MediaQuery.of(context).size.width,
@@ -116,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(
                           height: 15,
                         ),
-                        // InfoScreen(),
+                        InfoScreen(),
                         SizedBox(
                           height: 10,
                         ),
@@ -125,18 +127,17 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
         ),
-        
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        isExtended: true,
-        onPressed: toggleTheme,
-        icon: Icon(Icons.brightness_6_sharp),
-        label: Text("Change"),
+       floatingActionButton: FloatingActionButton(
+         isExtended: true,
+        onPressed: switchTheme,
+        child: Icon(Icons.brightness_6_sharp, size: 25,),
+
       ),
     );
   }
 
-  void toggleTheme() {
+  void switchTheme() {
     DynamicTheme.of(context).setBrightness(
         Theme.of(context).brightness == Brightness.dark
             ? Brightness.light

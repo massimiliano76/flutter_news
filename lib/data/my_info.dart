@@ -25,9 +25,8 @@ await launch(url);
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-
           Container(
-            alignment: Alignment.center,
+            //alignment: Alignment.center,
             padding: EdgeInsets.all(4),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

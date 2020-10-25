@@ -2,6 +2,7 @@ import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news/views/home_page.dart';
 import 'package:flutter_news/data/data.dart';
+import 'package:flutter_news/views/home_page_2.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
           title: "Flutter News",
           color: Colors.white,
           theme: data,
-          home: HomePage(),
+          home: HomePage2(),
         );
       },
     );
