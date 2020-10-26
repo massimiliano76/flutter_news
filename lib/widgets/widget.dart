@@ -175,7 +175,8 @@ class NewsTile extends StatelessWidget {
   String getDate(String utc) {
     var date = DateTime.parse(utc);
     DateTime local = date.toLocal();
-    return 'Date: ${local.day}/${local.month}/${local.year}    Time: ${local.hour}:${local.minute}:${local.second}';
+    return 'Date: ${local.day}/${local.month}/${local.year}';
+    //   Time: ${local.hour}:${local.minute}:${local.second}
   }
 
 class CategorieTile2 extends StatelessWidget {
@@ -250,7 +251,7 @@ class CategorieTile3 extends StatelessWidget {
         height: 100,
         width: MediaQuery.of(context).size.width,       
         //padding: EdgeInsets.symmetric(vertical: 16.0),
-        margin: EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
+        margin: EdgeInsets.symmetric(horizontal: 2.0, vertical: 6.0),
 
         child: Stack(
           children: <Widget>[

@@ -7,6 +7,7 @@ import 'package:flutter_news/helper_functions/trending_news.dart';
 import 'package:flutter_news/models/article_model.dart';
 import 'package:flutter_news/models/categorie_model.dart';
 import 'package:flutter_news/widgets/widget.dart';
+import 'package:extended_tabs/extended_tabs.dart';
 
 class HomePage2 extends StatefulWidget {
   @override
@@ -52,6 +53,11 @@ class _HomePage2State extends State<HomePage2> {
             elevation: 0.0,
             centerTitle: true,
             bottom: TabBar(
+              unselectedLabelColor: Colors.grey,
+              isScrollable: false,
+              indicatorColor: Colors.blue[600],
+              indicatorWeight: 3,
+              indicatorPadding: EdgeInsets.symmetric(horizontal: 12.0),
               onTap: (index) {
                 setState(() {
                   indexTab = index;
@@ -74,7 +80,9 @@ class _HomePage2State extends State<HomePage2> {
             snackBar: SnackBar(
               content: Text("Tap again to exit "),
             ),
-            child: TabBarView(
+            child: ExtendedTabBarView(
+              controller: _tabController,
+              linkWithAncestor: false,
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,

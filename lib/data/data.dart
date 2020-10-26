@@ -67,7 +67,7 @@ List<CategorieModel> getSources() {
 
   categorieModel.imgUrl =
       "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
-  categorieModel.categorieName = "BBC-Bews";
+  categorieModel.categorieName = "BBC-News";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
