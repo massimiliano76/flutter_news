@@ -60,6 +60,7 @@ class _HomePageState extends State<HomePage> {
           content: Text("Tap again to exit"),
         ),
         child: SafeArea(
+          //top: true,
           child: _loading
               ? Center(
                   child: Container(
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                               physics: ClampingScrollPhysics(),
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
-                              padding: EdgeInsets.symmetric(horizontal: 12),
+                              padding: EdgeInsets.only(left: 12, right : 8),
                               itemBuilder: (context, index) {
                                 return CategorieTile(
                                   imgUrl: categories[index].imgUrl,

@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_news/models/categorie_model.dart';
 import 'package:flutter_news/views/categorie_view.dart';
 import 'package:flutter_news/views/source_view.dart';
 import 'package:flutter_news/views/web_view.dart';
@@ -11,6 +12,7 @@ class AppName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(top: 16.0),
       child: RichText(
           text: TextSpan(children: <TextSpan>[
         TextSpan(
@@ -53,8 +55,10 @@ class CategorieTile extends StatelessWidget {
       child: Container(
         height: 55,
         width: 120,
-        margin: EdgeInsets.only(right: 5, top: 10,),
-
+        margin: EdgeInsets.only(
+          right: 5,
+          top: 10,
+        ),
         child: Stack(
           children: <Widget>[
             ClipRRect(
@@ -172,12 +176,29 @@ class NewsTile extends StatelessWidget {
   }
 }
 
-  String getDate(String utc) {
-    var date = DateTime.parse(utc);
-    DateTime local = date.toLocal();
-    return 'Date: ${local.day}/${local.month}/${local.year}';
-    //   Time: ${local.hour}:${local.minute}:${local.second}
-  }
+Widget newsList({List<CategorieModel> categories, context}) {
+  return Container(
+    child: GridView.count(
+      crossAxisCount: 2,
+      childAspectRatio: .2,
+      shrinkWrap: true,
+      children: categories.map((e) {
+        return GridTile(
+          child: CategorieTile(
+            imgUrl: e.imgUrl,
+            title: e.categorieName,
+          ),
+        );
+      }).toList(),
+    ),
+  );
+}
+
+String getDate(String utc) {
+  var date = DateTime.parse(utc);
+  DateTime local = date.toLocal();
+  return 'Date: ${local.day}/${local.month}/${local.year}  Time: ${local.hour}:${local.minute}:${local.second}';
+}
 
 class CategorieTile2 extends StatelessWidget {
   String imgUrl;
@@ -207,20 +228,22 @@ class CategorieTile2 extends StatelessWidget {
                 imgUrl,
                 fit: BoxFit.cover,
                 height: 100,
-        width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width,
               ),
             ),
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: Container(
                 height: 100,
-        width: MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width,
                 color: Colors.black26,
                 alignment: Alignment.center,
                 child: Text(
                   title,
                   style: TextStyle(
-                      color: Colors.white,fontSize: 20, fontWeight: FontWeight.w600),
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600),
                 ),
               ),
             )
@@ -249,19 +272,20 @@ class CategorieTile3 extends StatelessWidget {
       },
       child: Container(
         height: 100,
-        width: MediaQuery.of(context).size.width,       
+        width: MediaQuery.of(context).size.width,
         //padding: EdgeInsets.symmetric(vertical: 16.0),
-        margin: EdgeInsets.symmetric(horizontal: 2.0, vertical: 6.0),
+        margin: EdgeInsets.symmetric(horizontal: 4.0, vertical: 6.0),
 
         child: Stack(
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.network(
+              child: Image.asset(
                 imgUrl,
                 fit: BoxFit.cover,
                 height: 100,
                 width: MediaQuery.of(context).size.width,
+                
               ),
             ),
             ClipRRect(
@@ -273,8 +297,12 @@ class CategorieTile3 extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   title,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.w600, fontSize: 20,),
+                    color: Colors.transparent,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 22,                    
+                  ),
                 ),
               ),
             )
@@ -284,5 +312,3 @@ class CategorieTile3 extends StatelessWidget {
     );
   }
 }
-
-

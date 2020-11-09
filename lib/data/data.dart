@@ -34,7 +34,8 @@ List<CategorieModel> getCategories() {
   categories.add(categorieModel);
   categorieModel = new CategorieModel();
 
-  categorieModel.imgUrl = "https://images.pexels.com/photos/105028/pexels-photo-105028.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  categorieModel.imgUrl =
+      "https://images.pexels.com/photos/105028/pexels-photo-105028.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
   categorieModel.categorieName = "Health";
   categories.add(categorieModel);
   categorieModel = new CategorieModel();
@@ -60,50 +61,75 @@ List<CategorieModel> getCategories() {
   return categories;
 }
 
-
 List<CategorieModel> getSources() {
   List<CategorieModel> sources = new List();
   CategorieModel categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+      "assets/images/bbc_news.png";
   categorieModel.categorieName = "BBC-News";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+      "assets/images/abc_news.png";
   categorieModel.categorieName = "ABC-News";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+      "assets/images/cnn_logo.png";
   categorieModel.categorieName = "CNN";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+      "assets/images/google_news.png";
   categorieModel.categorieName = "Google-News-in";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+      "assets/images/mtv_news.png";
   categorieModel.categorieName = "MTV-News";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+      "assets/images/fox_news.png";
   categorieModel.categorieName = "Fox-News";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+      "assets/images/times_of_india.png";
   categorieModel.categorieName = "The-Times-of-India";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl =
+      "assets/images/espn.png";
+  categorieModel.categorieName = "ESPN";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl = "assets/images/the_Hindu_times.png";
+  categorieModel.categorieName = "The-Hindu";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl = "assets/images/buzzfeed.png";
+  categorieModel.categorieName = "Buzzfeed";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl = "assets/images/nat_geo.png";
+  categorieModel.categorieName = "National-Geographic";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+  categorieModel.imgUrl = "assets/images/crypto_coins_news.png";
+  categorieModel.categorieName = "Crypto-Coins-News";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 

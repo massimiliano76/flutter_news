@@ -2,12 +2,15 @@ import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news/data/data.dart';
+import 'package:flutter_news/data/my_info.dart';
 import 'package:flutter_news/helper_functions/get_source_news.dart';
 import 'package:flutter_news/helper_functions/trending_news.dart';
 import 'package:flutter_news/models/article_model.dart';
 import 'package:flutter_news/models/categorie_model.dart';
+import 'package:flutter_news/views/categorie_view.dart';
 import 'package:flutter_news/widgets/widget.dart';
 import 'package:extended_tabs/extended_tabs.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomePage2 extends StatefulWidget {
   @override
@@ -104,48 +107,59 @@ class _HomePage2State extends State<HomePage2> {
                       }),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 10),
-                  height: 100,
+                  //margin: EdgeInsets.only(top: 10),
+                  height: 200,
                   width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                      itemCount: categories.length,
+                  child: GridView.count(
+                      crossAxisCount: 2,    
+                      childAspectRatio: 1.7,                  
+                      mainAxisSpacing: 6,
+                      crossAxisSpacing: 5,
                       physics: ClampingScrollPhysics(),
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16.0),
-                      
-                      itemBuilder: (context, index) {
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16.0),                
+                      children: categories.map((e) {
                         return CategorieTile2(
-                          imgUrl: categories[index].imgUrl,
-                          title: categories[index].categorieName,
+                          imgUrl: e.imgUrl,
+                          title: e.categorieName,
                         );
-                      }),
-                ),
+                      }).toList(),                  
+                    ),
+                  ),              
                 Container(
-                  margin: EdgeInsets.only(top: 10),
+                  //margin: EdgeInsets.only(top: 10),
                   height: 200,
                   width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                      itemCount: sources.length,
+                  child: GridView.count(
+                      //itemCount: sources.length,
+                      crossAxisCount: 2,
                       physics: ClampingScrollPhysics(),
+                      childAspectRatio: 1.7,
                       shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(horizontal: 12),
-                      itemBuilder: (context, index) {
+                      mainAxisSpacing: 6,
+                      crossAxisSpacing: 5,
+                      scrollDirection: Axis.vertical,
+                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16.0),
+                      children: sources.map((e) {
                         return CategorieTile3(
-                          imgUrl: sources[index].imgUrl,
-                          title: sources[index].categorieName,
+                          imgUrl: e.imgUrl,
+                          title: e.categorieName,
                         );
-                      }),
-                ),
-               
-              ],
+                      }
+                      ).toList(),
+                    ),
+                  ),
+                   
+                ],
+              ),
             ),
-          ),
           floatingActionButton: indexTab == 0
               ? FloatingActionButton(
+                foregroundColor: Colors.black,
                   //heroTag: ,
                   onPressed: switchTheme,
-                  child: Icon(Icons.brightness_6_sharp),
+                  child: Icon(Icons.brightness_6_sharp, color: Colors.black, ),
                 )
               : Text("")),
     );
