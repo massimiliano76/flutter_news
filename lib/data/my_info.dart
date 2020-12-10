@@ -25,14 +25,13 @@ await launch(url);
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-
           Container(
-            alignment: Alignment.center,
+            //alignment: Alignment.center,
             padding: EdgeInsets.all(4),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text("Made by "),
+                Text("Made by ",),
                 InkWell(
                   onTap: () {
                     _launchUrl("https://www.linkedin.com/in/suhas-kadu-12b1a51ab/");
@@ -49,13 +48,14 @@ await launch(url);
             padding: EdgeInsets.all(2),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              //crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Text("Powered by "),
+                Text("Powered by ", ),
                 InkWell(
                   onTap: () {
                     _launchUrl("https://newsapi.org/");
                   },
-                  child: Text(" NewsAPI",
+                  child: Text(" NewsAPI", 
                   style: GoogleFonts.roboto(color: Colors.blue,),
                   ),
                 ),

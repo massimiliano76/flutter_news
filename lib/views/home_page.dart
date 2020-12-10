@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
 
   bool _loading;
   var newsList;
-  bool _isSwitched = false;
 
   void getTrendingNews() async {
     News news = News();
@@ -34,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     _loading = true;
-    super.initState();    
+    super.initState();
     categories = getCategories();
     getTrendingNews();
   }
@@ -45,31 +44,35 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: AppName(),
         centerTitle: true,
-        //backgroundColor: Colors.purple,
         elevation: 0.0,
         actions: [
-          Switch(
-            activeColor: Colors.white,
-            //autofocus: true,
-            //activeTrackColor: Colors.blue,
-            inactiveThumbColor: Colors.white,
-            value: _isSwitched,
-            onChanged: (bool value) {
-              toggleTheme();
-              setState(() {
-                _isSwitched = value;
-              });
-            },
-          ),
+          // IconButton(
+          //   icon: Icon(
+          //     Icons.brightness_6_rounded,
+          //     size: 25,
+          //   ),
+          //   onPressed: switchTheme,
+          // )
         ],
       ),
       body: DoubleBackToCloseApp(
         snackBar: const SnackBar(
-          content: Text("Press back again to exit"),
+          content: Text("Tap again to exit"),
         ),
         child: SafeArea(
+          //top: true,
           child: _loading
-              ? Center(child: Container(child: CircularProgressIndicator()))
+              ? Center(
+                  child: Container(
+                    child: CircularProgressIndicator(
+                      strokeWidth: 4.0,
+                      backgroundColor: Colors.transparent,
+                      valueColor: AlwaysStoppedAnimation(
+                        Colors.purpleAccent[700],
+                      ),
+                    ),
+                  ),
+                )
               : SingleChildScrollView(
                   child: Container(
                     child: Column(
@@ -83,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                               physics: ClampingScrollPhysics(),
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
-                              padding: EdgeInsets.symmetric(horizontal: 12),
+                              padding: EdgeInsets.only(left: 12, right : 8),
                               itemBuilder: (context, index) {
                                 return CategorieTile(
                                   imgUrl: categories[index].imgUrl,
@@ -118,18 +121,24 @@ class _HomePageState extends State<HomePage> {
                         ),
                         InfoScreen(),
                         SizedBox(
-                          height: 20,
-                        )
+                          height: 10,
+                        ),
                       ],
                     ),
                   ),
                 ),
         ),
       ),
+       floatingActionButton: FloatingActionButton(
+         isExtended: true,
+        onPressed: switchTheme,
+        child: Icon(Icons.brightness_6_sharp, size: 25,),
+
+      ),
     );
   }
 
-  void toggleTheme() {
+  void switchTheme() {
     DynamicTheme.of(context).setBrightness(
         Theme.of(context).brightness == Brightness.dark
             ? Brightness.light
