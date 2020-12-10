@@ -1,7 +1,9 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_news/models/categorie_model.dart';
 import 'package:flutter_news/views/categorie_view.dart';
+import 'package:flutter_news/views/home_page_2.dart';
 import 'package:flutter_news/views/source_view.dart';
 import 'package:flutter_news/views/web_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,20 +18,22 @@ class AppName extends StatelessWidget {
       child: RichText(
           text: TextSpan(children: <TextSpan>[
         TextSpan(
-          text: "Flutter",
-          style: GoogleFonts.roboto(
+          text: "Express",
+          style: GoogleFonts.libreFranklin(
               color: Colors.blue[600],
               fontSize: 22,
               fontWeight: FontWeight.w600,
-              letterSpacing: 0.8),
+              letterSpacing: 0.5
+              ),
         ),
         TextSpan(
           text: "News",
-          style: GoogleFonts.roboto(
+          style: GoogleFonts.libreFranklin(
               color: Colors.blue[600],
               fontSize: 22,
               fontWeight: FontWeight.w600,
-              letterSpacing: 0.8),
+              letterSpacing: 0.5,
+              ),
         )
       ])),
     );
@@ -150,7 +154,7 @@ class NewsTile extends StatelessWidget {
                   child: Text(
                     title,
                     maxLines: 2,
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+                    style: GoogleFonts.montserrat(fontWeight: FontWeight.w500, fontSize: 20),
                   ),
                 ),
                 Padding(
@@ -158,6 +162,7 @@ class NewsTile extends StatelessWidget {
                   child: Text(
                     description,
                     maxLines: 2,
+                    style: GoogleFonts.montserrat(),
                   ),
                 ),
                 Padding(
@@ -165,7 +170,7 @@ class NewsTile extends StatelessWidget {
                         horizontal: 6.0, vertical: 2.0),
                     child: Text(
                       getDate(publishedAt),
-                      style: GoogleFonts.roboto(),
+                      style: GoogleFonts.montserrat(),
                     )),
               ],
             ),
@@ -182,11 +187,11 @@ Widget newsList({List<CategorieModel> categories, context}) {
       crossAxisCount: 2,
       childAspectRatio: .2,
       shrinkWrap: true,
-      children: categories.map((e) {
+      children: categories.map((category) {
         return GridTile(
           child: CategorieTile(
-            imgUrl: e.imgUrl,
-            title: e.categorieName,
+            imgUrl: category.imgUrl,
+            title: category.categorieName,
           ),
         );
       }).toList(),
@@ -240,7 +245,7 @@ class CategorieTile2 extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   title,
-                  style: TextStyle(
+                  style: GoogleFonts.libreFranklin(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w600),
@@ -285,7 +290,6 @@ class CategorieTile3 extends StatelessWidget {
                 fit: BoxFit.cover,
                 height: 100,
                 width: MediaQuery.of(context).size.width,
-                
               ),
             ),
             ClipRRect(
@@ -301,7 +305,7 @@ class CategorieTile3 extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.transparent,
                     fontWeight: FontWeight.w700,
-                    fontSize: 22,                    
+                    fontSize: 22,
                   ),
                 ),
               ),

@@ -10,7 +10,7 @@ import 'package:flutter_news/models/categorie_model.dart';
 import 'package:flutter_news/views/categorie_view.dart';
 import 'package:flutter_news/widgets/widget.dart';
 import 'package:extended_tabs/extended_tabs.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:animations/animations.dart';
 
 class HomePage2 extends StatefulWidget {
   @override
@@ -51,45 +51,45 @@ class _HomePage2State extends State<HomePage2> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-          appBar: AppBar(
-            title: AppName(),
-            elevation: 0.0,
-            centerTitle: true,
-            bottom: TabBar(              
-              unselectedLabelColor: Colors.grey,
-              isScrollable: false,
-              indicatorColor: Colors.blue[600],
-              indicatorWeight: 3,
-              indicatorSize: TabBarIndicatorSize.tab,
-              indicatorPadding: EdgeInsets.symmetric(horizontal: 12.0),
-              onTap: (index) {
-                setState(() {
-                  indexTab = index;
-                });
-              },
-              tabs: [
-                Tab(
-                  text: "TRENDING",
-                ),
-                Tab(
-                  text: "CATEGORIES",
-                ),
-                Tab(
-                  text: "SOURCES",
-                )
-              ],
-            ),
+        appBar: AppBar(
+          title: AppName(),
+          elevation: 0.0,
+          centerTitle: true,
+          bottom: TabBar(
+            unselectedLabelColor: Colors.grey,
+            isScrollable: false,
+            indicatorColor: Colors.blue[600],
+            indicatorWeight: 3,
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorPadding: EdgeInsets.symmetric(horizontal: 12.0),
+            onTap: (index) {
+              setState(() {
+                indexTab = index;
+              });
+            },
+            tabs: [
+              Tab(
+                text: "TRENDING",
+              ),
+              Tab(
+                text: "CATEGORIES",
+              ),
+              Tab(
+                text: "SOURCES",
+              )
+            ],
           ),
-          body: DoubleBackToCloseApp(
-            snackBar: SnackBar(
-              content: Text("Tap again to exit "),
-            ),
-            child: ExtendedTabBarView(
-              controller: _tabController,
-              linkWithAncestor: false,
-              
-              children: [
-                Container(
+        ),
+        body: DoubleBackToCloseApp(
+          snackBar: SnackBar(
+            content: Text("Tap again to exit "),
+          ),
+          child: ExtendedTabBarView(
+            controller: _tabController,
+            linkWithAncestor: false,
+            children: [
+              Scaffold(
+                body: Container(
                   width: MediaQuery.of(context).size.width,
                   margin: EdgeInsets.only(top: 3),
                   child: ListView.builder(
@@ -108,62 +108,63 @@ class _HomePage2State extends State<HomePage2> {
                         );
                       }),
                 ),
-                Container(
-                  //margin: EdgeInsets.only(top: 10),
-                  height: 200,
-                  width: MediaQuery.of(context).size.width,
-                  child: GridView.count(
-                      crossAxisCount: 2,    
-                      childAspectRatio: 1.7,                  
-                      mainAxisSpacing: 6,
-                      crossAxisSpacing: 5,
-                      physics: ClampingScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16.0),                
-                      children: categories.map((e) {
-                        return CategorieTile2(
-                          imgUrl: e.imgUrl,
-                          title: e.categorieName,
-                        );
-                      }).toList(),                  
-                    ),
-                  ),              
-                Container(
-                  //margin: EdgeInsets.only(top: 10),
-                  height: 200,
-                  width: MediaQuery.of(context).size.width,
-                  child: GridView.count(
-                      //itemCount: sources.length,
-                      crossAxisCount: 2,
-                      physics: ClampingScrollPhysics(),
-                      childAspectRatio: 1.6,
-                      shrinkWrap: true,
-                      mainAxisSpacing: 6,
-                      crossAxisSpacing: 7,
-                      scrollDirection: Axis.vertical,
-                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16.0),
-                      children: sources.map((e) {
-                        return CategorieTile3(
-                          imgUrl: e.imgUrl,
-                          title: e.categorieName,
-                        );
-                      }
-                      ).toList(),
-                    ),
+                floatingActionButton: FloatingActionButton(
+                  //foregroundColor: Colors.black,
+                  child: Icon(
+                    Icons.brightness_6_sharp,
+                    color: Colors.black,
                   ),
-                   
-                ],
+                  onPressed: () {
+                    switchTheme();
+                  },
+                ),
               ),
-            ),
-          floatingActionButton: indexTab == 0
-              ? FloatingActionButton(
-                foregroundColor: Colors.black,
-                  //heroTag: ,
-                  onPressed: switchTheme,
-                  child: Icon(Icons.brightness_6_sharp, color: Colors.black, ),
-                )
-              : Text("")),
+              Container(
+                //margin: EdgeInsets.only(top: 10),
+                height: 200,
+                width: MediaQuery.of(context).size.width,
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1.7,
+                  mainAxisSpacing: 6,
+                  crossAxisSpacing: 5,
+                  physics: ClampingScrollPhysics(),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16.0),
+                  children: categories.map((category) {
+                    return CategorieTile2(
+                      imgUrl: category.imgUrl,
+                      title: category.categorieName,
+                    );
+                  }).toList(),
+                ),
+              ),
+              Container(
+                height: 200,
+                width: MediaQuery.of(context).size.width,
+                child: GridView.count(
+                  //itemCount: sources.length,
+                  crossAxisCount: 2,
+                  physics: ClampingScrollPhysics(),
+                  childAspectRatio: 1.6,
+                  shrinkWrap: true,
+                  mainAxisSpacing: 6,
+                  crossAxisSpacing: 7,
+                  scrollDirection: Axis.vertical,
+                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16.0),
+                  children: sources.map((source) {
+                    return CategorieTile3(
+                      imgUrl: source.imgUrl,
+                      title: source.categorieName,
+                    );
+                  }).toList(),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 

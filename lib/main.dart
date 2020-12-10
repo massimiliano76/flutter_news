@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_news/views/home_page.dart';
 import 'package:flutter_news/data/data.dart';
 import 'package:flutter_news/views/home_page_2.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,12 +21,12 @@ class _MyAppState extends State<MyApp> {
       data: (brightness) => ThemeData(             
         primarySwatch: white,
         //primaryColor: Colors.white,
-        brightness: brightness,
+        brightness: brightness,        
       ),
       themedWidgetBuilder: (context, data) {
-        return MaterialApp(
+        return MaterialApp(          
           debugShowCheckedModeBanner: false,
-          title: "Flutter News",
+          title: "Express News",
           color: Colors.white,
           theme: data,
           home: HomePage2(),
