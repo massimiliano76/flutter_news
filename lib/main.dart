@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
           title: "Flutter News",
           color: Colors.white,
           theme: data,
-          home: HomePage(),
+          home: HomePage2(),
         );
       },
     );

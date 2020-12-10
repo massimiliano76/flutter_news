@@ -55,11 +55,12 @@ class _HomePage2State extends State<HomePage2> {
             title: AppName(),
             elevation: 0.0,
             centerTitle: true,
-            bottom: TabBar(
+            bottom: TabBar(              
               unselectedLabelColor: Colors.grey,
               isScrollable: false,
               indicatorColor: Colors.blue[600],
               indicatorWeight: 3,
+              indicatorSize: TabBarIndicatorSize.tab,
               indicatorPadding: EdgeInsets.symmetric(horizontal: 12.0),
               onTap: (index) {
                 setState(() {
@@ -86,6 +87,7 @@ class _HomePage2State extends State<HomePage2> {
             child: ExtendedTabBarView(
               controller: _tabController,
               linkWithAncestor: false,
+              
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -135,10 +137,10 @@ class _HomePage2State extends State<HomePage2> {
                       //itemCount: sources.length,
                       crossAxisCount: 2,
                       physics: ClampingScrollPhysics(),
-                      childAspectRatio: 1.7,
+                      childAspectRatio: 1.6,
                       shrinkWrap: true,
                       mainAxisSpacing: 6,
-                      crossAxisSpacing: 5,
+                      crossAxisSpacing: 7,
                       scrollDirection: Axis.vertical,
                       padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16.0),
                       children: sources.map((e) {
