@@ -1,16 +1,9 @@
 # flutter_news
 
-A new Flutter project.
+## News App developed using Flutter and <a href="https://newsapi.org/">NewsAPI</a>. 
+This App offers the latest news, news related to different categories and news form well-known sources like <a href="https://timesofindia.indiatimes.com/">Times of India</a>, <a href="https://news.google.com/topstories?hl=en-IN&gl=IN&ceid=IN:en">GoogleNews</a>, etc. It fetches news using <a href="https://newsapi.org/">NewsAPI</a> which is simple and easy-to-use API that offers the latest top-headline and articles. 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Features
+- Dark Mode
+- Runs on Android, IOS and Web
+- WebView
