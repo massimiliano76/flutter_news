@@ -287,7 +287,7 @@ class CategorieTile3 extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
                 imgUrl,
-                fit: BoxFit.cover,
+                fit: BoxFit.fitWidth,
                 height: 100,
                 width: MediaQuery.of(context).size.width,
               ),
