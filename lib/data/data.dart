@@ -71,11 +71,11 @@ List<CategorieModel> getSources() {
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
-  categorieModel.imgUrl =
-      "assets/images/abc_news.png";
-  categorieModel.categorieName = "ABC-News";
-  sources.add(categorieModel);
-  categorieModel = new CategorieModel();
+  // categorieModel.imgUrl =
+  //     "assets/images/abc_news.png";
+  // categorieModel.categorieName = "ABC-News";
+  // sources.add(categorieModel);
+  // categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
       "assets/images/cnn_logo.png";
@@ -83,27 +83,32 @@ List<CategorieModel> getSources() {
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
-  categorieModel.imgUrl =
-      "assets/images/google_news.png";
-  categorieModel.categorieName = "Google-News-in";
+   categorieModel.imgUrl =
+      "assets/images/times_of_india.png";
+  categorieModel.categorieName = "The-Times-of-India";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
+  categorieModel.imgUrl = "assets/images/the_Hindu_times.png";
+  categorieModel.categorieName = "The-Hindu";
+  sources.add(categorieModel);
+  categorieModel = new CategorieModel();
+
+
   categorieModel.imgUrl =
-      "assets/images/mtv_news.png";
+      "assets/images/mtv_img.png";
   categorieModel.categorieName = "MTV-News";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "assets/images/fox_news.png";
-  categorieModel.categorieName = "Fox-News";
+      "assets/images/google_img.png";
+  categorieModel.categorieName = "Google-News-in";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
-
   categorieModel.imgUrl =
-      "assets/images/times_of_india.png";
-  categorieModel.categorieName = "The-Times-of-India";
+      "assets/images/fox_img.png";
+  categorieModel.categorieName = "Fox-News";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
@@ -113,25 +118,21 @@ List<CategorieModel> getSources() {
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
-  categorieModel.imgUrl = "assets/images/the_Hindu_times.png";
-  categorieModel.categorieName = "The-Hindu";
-  sources.add(categorieModel);
-  categorieModel = new CategorieModel();
-
+  
   categorieModel.imgUrl = "assets/images/buzzfeed.png";
   categorieModel.categorieName = "Buzzfeed";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
-  categorieModel.imgUrl = "assets/images/nat_geo.png";
+  categorieModel.imgUrl = "assets/images/img_Nat.png";
   categorieModel.categorieName = "National-Geographic";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();
 
-  categorieModel.imgUrl = "assets/images/crypto_coins_news.png";
-  categorieModel.categorieName = "Crypto-Coins-News";
-  sources.add(categorieModel);
-  categorieModel = new CategorieModel();
+  // categorieModel.imgUrl = "assets/images/crypto_coins_news.png";
+  // categorieModel.categorieName = "Crypto-Coins-News";
+  // sources.add(categorieModel);
+  // categorieModel = new CategorieModel();
 
   return sources;
 }
