@@ -102,7 +102,7 @@ List<CategorieModel> getSources() {
   categorieModel = new CategorieModel();
 
   categorieModel.imgUrl =
-      "assets/images/google_img.png";
+      "assets/images/img2.png";
   categorieModel.categorieName = "Google-News-in";
   sources.add(categorieModel);
   categorieModel = new CategorieModel();

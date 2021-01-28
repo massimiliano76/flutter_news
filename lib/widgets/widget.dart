@@ -199,8 +199,8 @@ Widget newsList({List<CategorieModel> categories, context}) {
   );
 }
 
-String getDate(String utc) {
-  var date = DateTime.parse(utc);
+String getDate(String datetime) {
+  var date = DateTime.parse(datetime);
   DateTime local = date.toLocal();
   return 'Date: ${local.day}/${local.month}/${local.year}  Time: ${local.hour}:${local.minute}:${local.second}';
 }
@@ -287,7 +287,7 @@ class CategorieTile3 extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               child: Image.asset(
                 imgUrl,
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.fill,
                 height: 100,
                 width: MediaQuery.of(context).size.width,
               ),
